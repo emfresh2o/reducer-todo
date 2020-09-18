@@ -1,13 +1,13 @@
 import React, { useReducer } from "react";
-import { todoReducerList, initialState } from "../reducers/TodoReducerList";
+import { todoReducer, initialState } from "../reducers/TodoReducer";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
-export const TodoCompleted = () => {
- const [state, dispatch]   = useReducer(todoReducerList, initialState);
+export const Completed = () => {
+ const [state, dispatch]   = useReducer(todoReducer, initialState);
     console.log(state, dispatch);
 
-const addItem = newItemText => dispatch({type: "ADD_TODO", text: newItemText});
+const addTodo = newTodo => dispatch({type: "ADD_TODO", text: newTodo});
 
 const toggleCompleted = id => dispatch({type: "TOGGLE_COMPLETED", id: id});
 
@@ -15,7 +15,7 @@ const clearCompleted = () => dispatch({type: "CLEAR_COMPLETED"});
 
  return (
      <div>
-         <TodoForm addItem={addItem}/>
+         <TodoForm addTodo={addTodo}/>
          <TodoList clearCompleted={clearCompleted} toggleCompleted={toggleCompleted} todo={state.todo}/>
      </div>
  )

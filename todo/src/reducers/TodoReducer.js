@@ -6,20 +6,20 @@ export const initialState = {
 
         
     },{
-        item: 'Practice using reducers',
+        item: 'Cook dinner',
         completed: false,
         id: 3892987590
         
     },{
-        item: 'Make a new project using reducers',
+        item: 'Feed and walk the dogs',
         completed: false,
         id: 3892987591
         
     }
 ]}
 
-export const todoReducerList = (state, action) => {
-    console.log(action);
+export const todoReducer = (state, action) => {
+    // console.log(action);
     switch (action.type){
         case "ADD_TODO":
             return {

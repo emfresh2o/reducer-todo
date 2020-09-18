@@ -4,18 +4,18 @@ class TodoForm extends Component {
     constructor(){
         super()
         this.state = {
-            newItem: ""
+            newTodo: ""
         }
     }
     handleChanges = (e) => {
         this.setState({
-            newItem: e.target.value
+            newTodo: e.target.value
         })
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addItem(this.state.newItem);
-        this.setState({newItem: ""});
+        this.props.addTodo(this.state.newTodo);
+        this.setState({newTodo: ""});
     }
 
   
@@ -23,7 +23,10 @@ class TodoForm extends Component {
         return(
             <form id='to-do-form' onSubmit={this.handleSubmit}>
                 <input 
-                    type="text" name="item" placeholder="...todo" value={this.state.newItem} 
+                    type="text" 
+                    name="item" 
+                    placeholder="...todo" 
+                    value={this.state.newTodo} 
                     onChange={this.handleChanges}/>
                 <button type='submit'>Add Todo</button>
             </form>
